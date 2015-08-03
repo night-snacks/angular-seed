@@ -1,7 +1,7 @@
 /**
  * @file gulpfile.js
  * @author wujun07
- * @description 将每个 task 单独维护在 gulp_task/ 中
+ * @description 将每个 task 单独维护在 gulp-task/ 中
  */
 var requireDir = require('require-dir');
 var gulp = require('gulp');

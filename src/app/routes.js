@@ -50,7 +50,6 @@ define(['app'], function (app) {
                     }
                 },
                 resolve: {
-                    // 'header': resolveDependencies('vm/common/header/header.controller'),
                     common: resolveDependencies('vm/common/index'),
                     home: resolveDependencies('vm/home/index')
                 }
@@ -62,11 +61,9 @@ define(['app'], function (app) {
                     'header': headerConfig,
                     'footer': footerConfig,
                     'body': {
-                        // templateProvider: tplProvider('aboutTpl'),
-                        // templateProvider: tplProvider('aboutTpl'),
                         templateProvider: tplPro('welcomeTpl'),
                         controller: 'welcomeCtrl as vm'
-                    },
+                    }
                 },
                 resolve: {
                     common: resolveDependencies('vm/common/index'),
@@ -88,19 +85,14 @@ define(['app'], function (app) {
                     'header': headerConfig,
                     'footer': footerConfig,
                     'body': {
-                        // templateProvider: tplProvider('aboutTpl'),
-                        // templateProvider: tplProvider('aboutTpl'),
                         templateProvider: tplPro('aboutTpl'),
                         controller: 'aboutCtrl as vm'
                     },
                     'aboutNav@about': {
-                        // templateProvider: tplProvider('navTpl'),
                         templateProvider: tplPro('aboutNavTpl'),
                         controller: 'aboutNavCtrl as vm'
                     },
                     'aboutContent@about': {
-                        // templateProvider: tplProvider('contentTpl'),
-                        // templateProvider: tplPro('contentTpl'),
                         templateProvider: tplPro('aboutContentTpl'),
                         controller: 'aboutContentCtrl as vm'
                     }
@@ -108,10 +100,6 @@ define(['app'], function (app) {
                 resolve: {
                     common: resolveDependencies('vm/common/index'),
                     tpl: resolveDependencies('vm/about/index')
-                    // header: resolveDependencies('vm/common/header/header.controller'),
-                    // aboutTpl: resolveDependencies('vm/about/about.controller'),
-                    // navTpl: resolveDependencies('vm/about/aboutNav.controller', 'aboutTpl'),
-                    // contentTpl: resolveDependencies('vm/about/aboutContent.controller', 'aboutTpl')
                 }
             })
             .state('about.topicIndex', {
@@ -122,10 +110,6 @@ define(['app'], function (app) {
                         templateProvider: tplPro('topicIndexTpl')
                     }
                 }
-                // resolve: {
-                //     tpl: resolveDependencies('vm/about/index'),
-                //     // topic1Tpl: resolveDependencies('vm/about/topic/topic1.controller', 'contentTpl')
-                // }
             })
             .state('about.topic1', {
                 url: '/topic1',
@@ -173,13 +157,6 @@ define(['app'], function (app) {
                 name = name || 'tpl';
                 return [resolvedName, function (tpl) {
                     return tpl[name];
-                }];
-            }
-
-            function tplProvider(tplName) {
-                tplName = tplName || 'tpl';
-                return [tplName, function (tpl) {
-                    return tpl;
                 }];
             }
         }

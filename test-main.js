@@ -4,8 +4,6 @@ for (var file in window.__karma__.files) {
         tests.push(file);
     }
 }
-// console.log(tests)
-// tests.push('text.js');
 
 requirejs.config({
     waitSeconds: 0,
@@ -64,10 +62,5 @@ requirejs.config({
             });
 
         });
-        // angular.bootstrap(document, ['app'], function() {
-        //     window.__karma__.start()
-        // });
     }
 });
-
-// require(['app', 'angular', 'app-init']);
