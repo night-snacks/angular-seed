@@ -1,0 +1,33 @@
+{
+  "name": "yt-angular-seed",
+  "version": "2.0.0",
+  "authors": [
+    "chenchengxing, wujun07"
+  ],
+  "description": "yt-angular-seed",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "angular-ui-bootstrap-bower": "~0.13.1",
+    "requirejs": "~2.1.19",
+    "ui-router": "~0.2.15",
+    "angular-loading-bar": "~0.8.0",
+    "toaster": "~0.4.15",
+    "angular-deferred-bootstrap": "~0.1.7",
+    "require-css": "~0.1.8",
+    "rjs": "~2.1.19",
+    "requirejs-text": "~2.0.14",
+    "angular-couch-potato": "~0.2.3"
+  }
+}

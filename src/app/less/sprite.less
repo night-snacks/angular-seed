@@ -1,0 +1,29 @@
+@icon-hi: -4px, -4px, 14px, 14px;
+
+.sprite-width(@sprite) {
+  width: extract(@sprite, 3);
+}
+
+.sprite-height(@sprite) {
+  height: extract(@sprite, 4);
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: extract(@sprite, 1);
+  @sprite-offset-y: extract(@sprite, 2);
+  background-position: @sprite-offset-x  @sprite-offset-y;
+}
+
+.sprite(@sprite) {
+  .sprite-position(@sprite);
+  background-repeat: no-repeat;
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+.sprite {
+  background-image: url('src/app/img/sprite.png');
+  content: '';
+  display: inline-block;
+}
+

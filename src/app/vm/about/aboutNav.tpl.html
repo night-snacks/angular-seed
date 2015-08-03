@@ -1,0 +1,3 @@
+<div class="list-group">
+  <a class="list-group-item" ng-class="{true: 'active'}[vm.parentVm.currentTopicName === topic.name]" ng-click="vm.goTopic(topic.name)" ng-repeat="topic in vm.topicList">{{topic.name}}</a>
+</div>
