@@ -16,7 +16,7 @@ var birdConfig = {
     transRules: {
         8787: {
             targetServer: {
-                host: 'cq01-art-xuexi-dev01.epc.baidu.com',
+                host: 'domain-or-ip',
                 port: '8022'
             },
             regExpPath: {
@@ -30,7 +30,7 @@ var birdConfig = {
         },
         9898: {
             targetServer: {
-                host: 'cq01-art-xuexi-dev01.epc.baidu.com',
+                host: 'domain-or-ip',
                 port: '8022'
             },
             regExpPath: {

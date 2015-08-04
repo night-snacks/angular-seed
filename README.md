@@ -1,5 +1,5 @@
 ## Installation
-    $ export PHANTOMJS_CDNURL=http://cnpmjs.org/downloads
+    $ export PHANTOMJS_CDNURL=http://npm.taobao.org/mirrors/phantomjs
     $ [sudo] npm install -g phantomjs bower gulp
     $ [sudo] npm install
     $ [sudo] bower install
