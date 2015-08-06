@@ -26,6 +26,7 @@
     "jasmine-jquery": "^2.1.0",
     "jshint-stylish": "^1.0.0",
     "karma": "^0.12.37",
+    "karma-chrome-launcher": "^0.2.0",
     "karma-coverage": "^0.4.2",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.0",
