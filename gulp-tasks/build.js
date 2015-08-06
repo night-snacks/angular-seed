@@ -9,36 +9,39 @@ var concatCss = require('gulp-concat-css');
 var less = require('gulp-less');
 var gulpif = require('gulp-if');
 var sprite = require('css-sprite').stream;
-var paths = require('../config').paths;
-var rimraf = require('gulp-rimraf');
 var bless = require('gulp-bless');
 var rename = require('gulp-rename');
+var del = require('del');
+var vinylPaths = require('vinyl-paths');
+
+var paths = require('../config').paths;
 
 gulp.task('build', ['cleanup', 'copy-vendor', 'copy-fonts']);
 
 // cleanup less and temp css
 gulp.task('cleanup', ['bless'], function () {
-    var stream = gulp
-                    .src([
-                        paths.build + '/app/**/*.less',
-                        paths.build + '/app/css/temp'
-                    ], {read: false})
-                    .pipe(rimraf({force: true}));
-    return stream;
+    return gulp
+            .src([
+                paths.build + '/app/**/*.less',
+                paths.build + '/app/css/temp'
+            ])
+            .pipe(vinylPaths(del));
 });
 
 // splits CSS files suitably for Internet Explorer < 10
 gulp.task('bless', ['concat-css'], function () {
-    return gulp.src(paths.build + '/app/css/app-unblessed.min.css')
-        .pipe(rename('app.min.css'))
-        .pipe(bless())
-        .pipe(gulp.dest(paths.build + '/app/css'));
+    return gulp
+            .src(paths.build + '/app/css/app-unblessed.min.css')
+            .pipe(rename('app.min.css'))
+            .pipe(bless())
+            .pipe(gulp.dest(paths.build + '/app/css'));
 });
 
 gulp.task('concat-css', ['copy-src'], function () {
     return gulp
             .src([
                 paths.vendor + '/bootstrap/dist/css/bootstrap.css',
+                paths.vendor + '/toaster/toaster.css',
                 paths.build + '/app/css/temp/**/*.css'
             ])
             .pipe(concatCss('app-unblessed.min.css', {rebaseUrls: false}))
@@ -53,9 +56,10 @@ gulp.task('copy-src', ['less'], function () {
 
 // less -> css
 gulp.task('less', ['sprites', 'clean-build'], function () {
-    return gulp.src(paths.src + '/app/**/*.less')
-        .pipe(less())
-        .pipe(gulp.dest(paths.build + '/app/css/temp'));
+    return gulp
+            .src(paths.src + '/app/**/*.less')
+            .pipe(less())
+            .pipe(gulp.dest(paths.build + '/app/css/temp'));
 
 });
 
@@ -92,10 +96,9 @@ gulp.task('copy-fonts', ['clean-build'], function () {
 
 // clean last build
 gulp.task('clean-build', function () {
-    var stream = gulp
-                    .src([
-                        paths.build
-                    ], {read: false})
-                    .pipe(rimraf({force: true}));
-    return stream;
+    return gulp
+            .src([
+                paths.build
+            ])
+            .pipe(vinylPaths(del));
 });

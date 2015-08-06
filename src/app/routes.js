@@ -134,14 +134,15 @@ define(['app'], function (app) {
 
             function resolveDependencies(indexModule, parentTplName) {
 
-                var provider = ['$q', '$rootScope'];
+                var providerInject = ['$q', '$rootScope'];
                 // The resolve keys MUST be injected into the child states
                 // if you want to wait for the promises to be resolved before instantiating the children.
                 if (parentTplName) {
-                    provider.push(parentTplName);
+                    providerInject.push(parentTplName);
                 }
-                provider.push(providerFunc);
-                return provider;
+                providerInject.push(providerFunc);
+
+                return providerInject;
 
                 function providerFunc($q, $rootScope, tpl) {
                     var deferred = $q.defer();
