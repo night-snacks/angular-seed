@@ -31,7 +31,7 @@ require.config({
         'css': '../vendor/require-css/css',
         'css-builder': '../vendor/require-css/css-builder',
         'normalize': '../vendor/require-css/normalize',
-        'vendor': 'vendor-loader',
+        'vendor': './vendor-loader',
         'angular': '../vendor/angular/angular',
         'angular-couch-potato': '../vendor/angular-couch-potato/dist/angular-couch-potato',
         'angular-deferred-bootstrap': 'vendor/angular-deferred-bootstrap/angular-deferred-bootstrap',

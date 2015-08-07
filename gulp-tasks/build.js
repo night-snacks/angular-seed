@@ -16,7 +16,7 @@ var vinylPaths = require('vinyl-paths');
 
 var paths = require('../config').paths;
 
-gulp.task('build', ['cleanup', 'copy-vendor', 'copy-fonts']);
+gulp.task('build', ['cleanup', 'copy']);
 
 // cleanup less and temp css
 gulp.task('cleanup', ['bless'], function () {

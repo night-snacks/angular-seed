@@ -1,8 +1,8 @@
 define([
     'app',
     'text!./topic-1.tpl.html',
-    'filter/percentage',
-    'vendor!angular-toaster:toaster'
+    'vendor!angular-toaster:toaster',
+    'filter/percentage'
 ], function (app, tpl) {
     app
     .regController('topic1Ctrl', [
