@@ -62,6 +62,9 @@ require.config({
         },
         'angular-toaster': {
             deps: ['angular']
+        },
+        'vendor': {
+            deps: ['angular']
         }
     }
 });

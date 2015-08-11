@@ -55,6 +55,9 @@ var configObj = {
         },
         'angular-toaster': {
             deps: ['angular']
+        },
+        'vendor': {
+            deps: ['angular']
         }
     }
 };

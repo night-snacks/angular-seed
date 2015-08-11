@@ -4,10 +4,11 @@
  * @description [vendorLoader.js description]
  */
 
-define(['angular'], function () {
+define([], function () {
 
     // Make module Foo and store $controllerProvider in a global
     var providers = null;
+    try{
     angular.module('yt.vendorLoader', [], [
         '$controllerProvider',
         '$compileProvider',
@@ -29,6 +30,9 @@ define(['angular'], function () {
             }
         }
     ]);
+}catch(e){
+
+}
 
     return {
         load: load
@@ -43,12 +47,12 @@ define(['angular'], function () {
         }
         // req has the same API as require().
         req([pathName], function (value) {
-
+            try {
             var injector = angular.element(document.body).injector();
             var module = angular.module(moduleName);
             var invokeQueue = module._invokeQueue;
 
-            try {
+            
                 // invoke whatever in invoke queue
                 angular.forEach(invokeQueue, function (invokeItem) {
                     var provider = providers[invokeItem[0]];
