@@ -16,7 +16,8 @@ var vinylPaths = require('vinyl-paths');
 
 var paths = require('../config').paths;
 
-gulp.task('build', ['cleanup', 'copy']);
+gulp.task('build', ['copy']);
+gulp.task('copy', ['copy-vendor', 'copy-fonts', 'cleanup']);
 
 // cleanup less and temp css
 gulp.task('cleanup', ['bless'], function () {
@@ -77,8 +78,6 @@ gulp.task('sprites', function () {
             }))
             .pipe(gulpif('*.png', gulp.dest(paths.src + '/app/img'), gulp.dest(paths.src + '/app/less')));
 });
-
-gulp.task('copy', ['copy-vendor', 'copy-fonts']);
 
 gulp.task('copy-vendor', ['clean-build'], function () {
     return gulp
